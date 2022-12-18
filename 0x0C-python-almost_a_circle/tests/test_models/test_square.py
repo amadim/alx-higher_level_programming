@@ -114,7 +114,7 @@ class TestSquare_size(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square([1, 2, 3])
 
-def test_set_size(self):
+    def test_set_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square({1, 2, 3}, 2)
 
@@ -218,7 +218,8 @@ class TestSquare_x(unittest.TestCase):
     def test_memoryview_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, memoryview(b'abcedfg'))
-def test_inf_x(self):
+
+    def test_inf_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, float('inf'), 2)
 
@@ -363,7 +364,7 @@ class TestSquare_stdout(unittest.TestCase):
         correct = "[Square] ({}) 0/0 - 4\n".format(s.id)
         self.assertEqual(correct, capture.getvalue())
 
-def test_str_method_size_x(self):
+    def test_str_method_size_x(self):
         s = Square(5, 5)
         correct = "[Square] ({}) 5/0 - 5".format(s.id)
         self.assertEqual(correct, s.__str__())
@@ -569,7 +570,7 @@ class TestSquare_update_kwargs(unittest.TestCase):
         correct = "[Square] ({}) 10/10 - 10".format(s.id)
         self.assertEqual(correct, str(s))
 
-def test_update_kwargs_None_id_and_more(self):
+    def test_update_kwargs_None_id_and_more(self):
         s = Square(10, 10, 10, 10)
         s.update(id=None, size=7, x=18)
         correct = "[Square] ({}) 18/10 - 7".format(s.id)

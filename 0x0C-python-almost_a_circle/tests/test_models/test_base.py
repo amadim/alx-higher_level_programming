@@ -99,7 +99,7 @@ class TestBase_instantiation(unittest.TestCase):
     def test_NaN_id(self):
         self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
-def test_two_args(self):
+    def test_two_args(self):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
@@ -297,7 +297,7 @@ class TestBase_create(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
 
-def test_create_rectangle_is(self):
+    def test_create_rectangle_is(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
@@ -469,7 +469,7 @@ class TestBase_save_to_file_csv(unittest.TestCase):
         with open("Square.csv", "r") as f:
             self.assertEqual("[]", f.read())
 
-def test_save_to_file_csv_no_args(self):
+    def test_save_to_file_csv_no_args(self):
         with self.assertRaises(TypeError):
             Rectangle.save_to_file_csv()
 
