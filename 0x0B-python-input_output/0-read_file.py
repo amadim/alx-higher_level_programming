@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-""" Module contains a function that reads from a file """
+"""
+Module for read_file method.
+"""
 
 
 def read_file(filename=""):
-    """ Function that reads from a file
-    Args:
-        filename: Name of file to be read
-    Raises:
-        Exception: Raises an exception when file cant be opened
     """
-    with open(filename, mode='r', encoding="utf-8") as f:
-        readfile = f.read()
-        print(readfile, end='')
+    Reads text file and prints to STDOUT
+    """
+
+    with open(filename, "r", encoding="UTF-8") as f:
+        for line in f:
+            print(line, end="")

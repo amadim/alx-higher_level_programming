@@ -1,1 +1,1 @@
-This readme is all about 0x01-python-if_else_loops_functions project.
+0x01. Python - if/else, loops, functions

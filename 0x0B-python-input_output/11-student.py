@@ -1,37 +1,23 @@
 #!/usr/bin/python3
-""" Module that defines the class Student
-"""
+'''Module for Student class.'''
 
 
 class Student:
-    """ Class to create student instances """
-
+    '''Class for jsonification.'''
     def __init__(self, first_name, last_name, age):
-        """ Special method to initialize """
+        '''Constructor.'''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """ Method that returns directory description """
-        obj = self.__dict__.copy()
-        if type(attrs) is list:
-
-            for item in attrs:
-                if type(item) is not str:
-                    return obj
-
-            d_list = {}
-
-            for iatr in range(len(attrs)):
-                for satr in obj:
-                    if attrs[iatr] == satr:
-                        d_list[satr] = obj[satr]
-            return d_list
-
-        return obj
+        '''Retrieves dictionary with filter.'''
+        if type(attrs) is list and all([type(x) == str for x in attrs]):
+            return {k: v for k, v in self.__dict__.items() if k in attrs}
+        else:
+            return self.__dict__.copy()
 
     def reload_from_json(self, json):
-        """ Replaces all attributes of the Student instance """
-        for atr in json:
-            self.__dict__[atr] = json[atr]
+        '''Loads attributes from json.'''
+        for key, value in json.items():
+            self.__dict__[key] = value
